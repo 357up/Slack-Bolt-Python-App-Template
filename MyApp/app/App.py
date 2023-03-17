@@ -54,8 +54,9 @@ class MyAppExtensions(AsyncApp):
             outfile.write(json_object)
 
     async def send_notification(self, user_id: str, spec: str):
-        await self.client.chat_postMessage(channel=user_id,
-                                           text=f"Hello <@{user_id}>! You have a scheduled punch clock reminder at {spec}.")
+        await self.client.chat_postMessage(
+            channel=user_id, text=f"Hello <@{user_id}>! You have a scheduled punch clock reminder at {spec}."
+        )
 
     async def process_user_config(self, ack, body, next, *argv):
         def validate_config(config: dict):
